@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claim Item — WhereIsMy</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <a href="/items.html" class="nav-logo">WhereIsMy</a>
+    <div class="nav-links">
+      <a href="/items.html">Browse</a>
+      <a href="/post.html">Post Item</a>
+      <button onclick="logout()" class="btn-logout">Logout</button>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>Submit a claim</h1>
+    <p class="subtitle" id="item-title">Loading item...</p>
+
+    <div class="error" id="error"></div>
+    <div class="success" id="success"></div>
+
+    <div class="form-group">
+      <label for="proof_text">Why is this item yours?</label>
+      <textarea 
+        id="proof_text" 
+        placeholder="Describe something only the owner would know — a scratch, a sticker, what's saved on it, where you last had it...">
+      </textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Proof photo (optional)</label>
+      <input type="file" id="proof_photo" accept="image/*" />
+      <div id="proof-preview"></div>
+    </div>
+
+    <button onclick="submitClaim()">Submit claim</button>
+    <a href="#" id="back-link" style="display:block;margin-top:1rem;color:#666;font-size:0.875rem">← Back to item</a>
+  </div>
+
+  <script src="/js/auth-check.js"></script>
+  <script src="/js/claim.js"></script>
+</body>
+</html>

@@ -28,7 +28,10 @@ async function loadItem() {
 
     <div class="item-actions">
       ${!isOwner ? `<button onclick="claimItem()" class="btn-secondary">Claim this item</button>` : ''}
-      ${isOwner ? `<button onclick="deleteItem()" class="btn-danger">Delete post</button>` : ''}
+      ${isOwner ? `
+        <a href="/manage-claims.html?id=${item.id}" class="btn-secondary" style="text-decoration:none;padding:0.7rem 1.25rem">View claims</a>
+        <button onclick="deleteItem()" class="btn-danger">Delete post</button>
+      ` : ''}
       <a href="/items.html" class="btn-secondary" style="text-decoration:none;padding:0.7rem 1.25rem">Back to browse</a>
     </div>
   `;

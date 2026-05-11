@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Claims — WhereIsMy</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <a href="/items.html" class="nav-logo">WhereIsMy</a>
+    <div class="nav-links">
+      <a href="/items.html">Browse</a>
+      <a href="/post.html">Post Item</a>
+      <button onclick="logout()" class="btn-logout">Logout</button>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>Incoming claims</h1>
+    <p class="subtitle" id="item-title">Loading...</p>
+    <div id="claims-list"><p class="loading">Loading claims...</p></div>
+  </div>
+
+  <script src="/js/auth-check.js"></script>
+  <script src="/js/manage-claims.js"></script>
+</body>
+</html>
