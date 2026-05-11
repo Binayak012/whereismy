@@ -1,5 +1,10 @@
+console.log('post.js loaded');
 let selectedType = 'lost';
 let uploadedPhotoUrl = null;
+let selectedLat = null;
+let selectedLng = null;
+let locationMap = null;
+let locationMarker = null;
 
 function setType(type) {
   selectedType = type;
@@ -33,6 +38,35 @@ document.getElementById('photo').addEventListener('change', async (e) => {
     preview.innerHTML = '<p style="color:red">Upload failed</p>';
   }
 });
+async function initLocationMap() {
+  const tokenRes = await fetch('/api/map-token');
+  const { token } = await tokenRes.json();
+
+  mapboxgl.accessToken = token;
+
+  locationMap = new mapboxgl.Map({
+    container: 'location-map',
+    style: 'mapbox://styles/mapbox/streets-v12',
+    center: [-74.2776, 40.8398],
+    zoom: 15
+  });
+
+  locationMap.on('click', (e) => {
+    selectedLat = e.lngLat.lat.toFixed(6);
+    selectedLng = e.lngLat.lng.toFixed(6);
+
+    document.getElementById('coords-label').textContent = 
+      `Pinned: ${selectedLat}, ${selectedLng}`;
+
+    if (locationMarker) locationMarker.remove();
+
+    locationMarker = new mapboxgl.Marker({ color: '#4f46e5' })
+      .setLngLat([selectedLng, selectedLat])
+      .addTo(locationMap);
+  });
+}
+
+initLocationMap();
 
 async function submitPost() {
   const title = document.getElementById('title').value.trim();
@@ -63,7 +97,9 @@ async function submitPost() {
       description,
       category,
       photo_url: uploadedPhotoUrl,
-      location_name
+      location_name,
+      lat: selectedLat,
+      lng: selectedLng
     })
   });
 

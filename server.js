@@ -24,7 +24,10 @@ app.use('/api/upload', require('./routes/upload'));
 app.get('/api/ping', (req, res) => {
   res.json({ message: 'pong' });
 });
-
+// serve mapbox token to authenticated frontend
+app.get('/api/map-token', (req, res) => {
+  res.json({ token: process.env.MAPBOX_TOKEN });
+});
 io.on('connection', (socket) => {
   console.log('user connected:', socket.id);
   socket.on('join', (userId) => {

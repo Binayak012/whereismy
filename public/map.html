@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map — WhereIsMy</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link href="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css" rel="stylesheet">
+  <style>
+    #map { 
+      height: calc(100vh - 57px); 
+      width: 100%; 
+    }
+
+    .map-filters {
+      position: absolute;
+      top: 70px;
+      left: 12px;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .map-filter-btn {
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      width: auto;
+    }
+
+    .map-filter-btn.all { background: #1a1a1a; color: white; }
+    .map-filter-btn.lost { background: #dc2626; color: white; }
+    .map-filter-btn.found { background: #16a34a; color: white; }
+    .map-filter-btn.inactive { background: white; color: #444; }
+
+    .mapboxgl-popup-content {
+      padding: 12px 16px;
+      border-radius: 10px;
+      min-width: 180px;
+    }
+
+    .popup-title {
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .popup-meta {
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 8px;
+    }
+
+    .popup-link {
+      font-size: 13px;
+      color: #4f46e5;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .popup-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="/items.html" class="nav-logo">WhereIsMy</a>
+    <div class="nav-links">
+      <a href="/items.html">Browse</a>
+      <a href="/map.html">Map</a>
+      <a href="/post.html">Post Item</a>
+      <button onclick="logout()" class="btn-logout">Logout</button>
+    </div>
+  </nav>
+
+  <div style="position:relative">
+    <div class="map-filters">
+      <button class="map-filter-btn all" onclick="setFilter('all', this)">All</button>
+      <button class="map-filter-btn lost inactive" onclick="setFilter('lost', this)">Lost</button>
+      <button class="map-filter-btn found inactive" onclick="setFilter('found', this)">Found</button>
+    </div>
+    <div id="map"></div>
+  </div>
+
+  <script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
+  <script src="/js/auth-check.js"></script>
+  <script src="/js/map.js"></script>
+</body>
+</html>
