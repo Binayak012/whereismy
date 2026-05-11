@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register — WhereIsMy</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="auth-body">
+  <div class="card">
+    <h1>Create account</h1>
+    <p>Join WhereIsMy to report lost and found items</p>
+
+    <div class="error" id="error"></div>
+
+    <label for="name">Name</label>
+    <input type="text" id="name" placeholder="Your name" />
+
+    <label for="email">Email</label>
+    <input type="email" id="email" placeholder="your@email.com" />
+
+    <label for="password">Password</label>
+    <input type="password" id="password" placeholder="Min 6 characters" />
+
+    <button onclick="register()">Create account</button>
+
+    <div class="bottom-link">
+      Already have an account? <a href="/login.html">Log in</a>
+    </div>
+  </div>
+
+  <script src="/js/register.js"></script>
+</body>
+</html>
