@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manage Claims — WhereIsMy</title>
+  <title>Notifications — WhereIsMy</title>
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
@@ -11,25 +11,27 @@
     <a href="/items.html" class="nav-logo">WhereIsMy</a>
     <div class="nav-links">
       <a href="/items.html">Browse</a>
+      <a href="/map.html">Map</a>
       <a href="/post.html">Post Item</a>
       <a href="/notifications.html">
-  <button class="notif-btn">
-    🔔
-    <span class="notif-badge" id="notif-badge">0</span>
-  </button>
-</a>
+        <button class="notif-btn">
+          🔔
+          <span class="notif-badge" id="notif-badge">0</span>
+        </button>
+      </a>
       <button onclick="logout()" class="btn-logout">Logout</button>
     </div>
   </nav>
 
   <div class="container">
-    <h1>Incoming claims</h1>
-    <p class="subtitle" id="item-title">Loading...</p>
-    <div id="claims-list"><p class="loading">Loading claims...</p></div>
+    <h1>Notifications</h1>
+    <p class="subtitle">Your recent activity</p>
+    <div id="notif-list"><p class="loading">Loading...</p></div>
   </div>
+
   <script src="/socket.io/socket.io.js"></script>
   <script src="/js/auth-check.js"></script>
   <script src="/js/notifications.js"></script>
-  <script src="/js/manage-claims.js"></script>
+  <script src="/js/notif-page.js"></script>
 </body>
 </html>

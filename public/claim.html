@@ -12,6 +12,12 @@
     <div class="nav-links">
       <a href="/items.html">Browse</a>
       <a href="/post.html">Post Item</a>
+      <a href="/notifications.html">
+  <button class="notif-btn">
+    🔔
+    <span class="notif-badge" id="notif-badge">0</span>
+  </button>
+</a>
       <button onclick="logout()" class="btn-logout">Logout</button>
     </div>
   </nav>
@@ -40,8 +46,9 @@
     <button onclick="submitClaim()">Submit claim</button>
     <a href="#" id="back-link" style="display:block;margin-top:1rem;color:#666;font-size:0.875rem">← Back to item</a>
   </div>
-
+  <script src="/socket.io/socket.io.js"></script>
   <script src="/js/auth-check.js"></script>
+  <script src="/js/notifications.js"></script>
   <script src="/js/claim.js"></script>
 </body>
 </html>

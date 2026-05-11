@@ -14,6 +14,12 @@
       <a href="/items.html">Browse</a>
       <a href="/map.html">Map</a>
       <a href="/post.html">Post Item</a>
+      <a href="/notifications.html">
+  <button class="notif-btn">
+    🔔
+    <span class="notif-badge" id="notif-badge">0</span>
+  </button>
+</a>
       <button onclick="logout()" class="btn-logout">Logout</button>
     </div>
   </nav>
@@ -75,8 +81,10 @@
 
     <button onclick="submitPost()" id="submit-btn">Post item</button>
   </div>
+  <script src="/socket.io/socket.io.js"></script>
   <script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
   <script src="/js/auth-check.js"></script>
+  <script src="/js/notifications.js"></script>
   <script src="/js/post.js"></script>
 </body>
 </html>

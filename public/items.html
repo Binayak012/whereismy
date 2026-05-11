@@ -13,6 +13,12 @@
       <a href="/items.html">Browse</a>
       <a href="/map.html">Map</a>
       <a href="/post.html">Post Item</a>
+      <a href="/notifications.html">
+  <button class="notif-btn">
+    🔔
+    <span class="notif-badge" id="notif-badge">0</span>
+  </button>
+</a>
       <button onclick="logout()" class="btn-logout">Logout</button>
     </div>
   </nav>
@@ -42,8 +48,9 @@
       <p class="loading">Loading items...</p>
     </div>
   </div>
-
+  <script src="/socket.io/socket.io.js"></script>
   <script src="/js/auth-check.js"></script>
+  <script src="/js/notifications.js"></script>
   <script src="/js/items.js"></script>
 </body>
 </html>
