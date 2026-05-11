@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post Item — WhereIsMy</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <a href="/items.html" class="nav-logo">WhereIsMy</a>
+    <div class="nav-links">
+      <a href="/items.html">Browse</a>
+      <a href="/post.html">Post Item</a>
+      <button onclick="logout()" class="btn-logout">Logout</button>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>Post an item</h1>
+    <p class="subtitle">Report something you lost or found on campus</p>
+
+    <div class="error" id="error"></div>
+    <div class="success" id="success"></div>
+
+    <div class="form-group">
+      <label>I</label>
+      <div class="type-toggle">
+        <button class="type-btn active" id="btn-lost" onclick="setType('lost')">Lost something</button>
+        <button class="type-btn" id="btn-found" onclick="setType('found')">Found something</button>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" id="title" placeholder="e.g. Black AirPods Pro" />
+    </div>
+
+    <div class="form-group">
+      <label for="category">Category</label>
+      <select id="category">
+        <option value="">Select a category</option>
+        <option value="electronics">Electronics</option>
+        <option value="keys">Keys</option>
+        <option value="bag">Bag / Backpack</option>
+        <option value="wallet">Wallet / Purse</option>
+        <option value="clothing">Clothing</option>
+        <option value="id">ID / Card</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" placeholder="Describe the item in detail — color, brand, any identifying features"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="location_name">Location</label>
+      <input type="text" id="location_name" placeholder="e.g. Library 2nd floor, near the printers" />
+    </div>
+
+    <div class="form-group">
+      <label>Photo</label>
+      <input type="file" id="photo" accept="image/*" />
+      <div class="photo-preview" id="photo-preview"></div>
+    </div>
+
+    <button onclick="submitPost()" id="submit-btn">Post item</button>
+  </div>
+
+  <script src="/js/auth-check.js"></script>
+  <script src="/js/post.js"></script>
+</body>
+</html>

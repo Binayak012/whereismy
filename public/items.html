@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse Items — WhereIsMy</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <a href="/items.html" class="nav-logo">WhereIsMy</a>
+    <div class="nav-links">
+      <a href="/items.html">Browse</a>
+      <a href="/post.html">Post Item</a>
+      <button onclick="logout()" class="btn-logout">Logout</button>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>Lost & Found</h1>
+    <p class="subtitle">Browse items reported on campus</p>
+
+    <div class="filters">
+      <button class="filter-btn active" onclick="setFilter('type', '')">All</button>
+      <button class="filter-btn" onclick="setFilter('type', 'lost')">Lost</button>
+      <button class="filter-btn" onclick="setFilter('type', 'found')">Found</button>
+
+      <select onchange="setFilter('category', this.value)" class="filter-select">
+        <option value="">All categories</option>
+        <option value="electronics">Electronics</option>
+        <option value="keys">Keys</option>
+        <option value="bag">Bag / Backpack</option>
+        <option value="wallet">Wallet / Purse</option>
+        <option value="clothing">Clothing</option>
+        <option value="id">ID / Card</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+
+    <div class="items-grid" id="items-grid">
+      <p class="loading">Loading items...</p>
+    </div>
+  </div>
+
+  <script src="/js/auth-check.js"></script>
+  <script src="/js/items.js"></script>
+</body>
+</html>
