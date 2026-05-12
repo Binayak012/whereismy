@@ -11,5 +11,10 @@
   <p>Dashboard coming soon.</p>
 
   <script src="/js/auth.js"></script>
+  <script>
+  if (localStorage.getItem('token')) {
+    window.location.href = '/items.html';
+  }
+</script>
 </body>
 </html>
