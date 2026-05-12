@@ -22,8 +22,9 @@ async function loadItem() {
     </div>
     <h1 class="item-detail-title">${item.title}</h1>
     <div class="item-detail-meta">
-      ${item.category} · ${item.location_name || 'No location specified'} · Posted by ${item.poster_name} on ${date}
-    </div>
+  ${item.category} · ${item.location_name || 'No location specified'} · Posted by ${item.poster_name} on ${date}<br>
+  Contact: <a href="mailto:${item.poster_email}" style="color:#4f46e5">${item.poster_email}</a>
+</div>
     <p class="item-detail-description">${item.description || 'No description provided.'}</p>
 
     <div class="item-actions">
