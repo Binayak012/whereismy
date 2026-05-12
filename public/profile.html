@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Posts — WhereIsMy</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <a href="/items.html" class="nav-logo">WhereIsMy</a>
+    <div class="nav-links">
+      <a href="/items.html">Browse</a>
+      <a href="/map.html">Map</a>
+      <a href="/post.html">Post Item</a>
+      <a href="/notifications.html">
+        <button class="notif-btn">🔔<span class="notif-badge" id="notif-badge">0</span></button>
+      </a>
+      <a href="/profile.html" style="font-weight:500;color:#4f46e5" id="nav-name"></a>
+      <button onclick="logout()" class="btn-logout">Logout</button>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1 id="profile-name">My posts</h1>
+    <p class="subtitle" id="profile-email"></p>
+
+    <div style="display:flex;gap:0.5rem;margin-bottom:1.5rem">
+      <button class="filter-btn active" onclick="setTab('all', this)">All</button>
+      <button class="filter-btn" onclick="setTab('lost', this)">Lost</button>
+      <button class="filter-btn" onclick="setTab('found', this)">Found</button>
+      <button class="filter-btn" onclick="setTab('open', this)">Open</button>
+      <button class="filter-btn" onclick="setTab('claimed', this)">Claimed</button>
+    </div>
+
+    <div class="items-grid" id="my-items">
+      <p class="loading">Loading...</p>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/auth-check.js"></script>
+  <script src="/js/notifications.js"></script>
+  <script src="/js/profile.js"></script>
+</body>
+</html>
